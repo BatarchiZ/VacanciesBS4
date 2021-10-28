@@ -1,0 +1,75 @@
+Introduction:
+The idea behind my project was to compare how efficient Natasha NLP tool is against the other available methods of data analysis.
+Namely:Basic Python tools or Re Library
+
+Data Collection Method:
+To accomplish my goal, I have used 'BeautifulSoup4' and 'requests' to parse through a website (https://career.habr.com) in search of similar vacancies.
+I have created a database (Vacancies.txt) which is the database I have been using for my text processing and analysis.
+The code for parsing is contained in the file: 'Description_Processing_Analysis.py'
+
+
+Text Processing:
+The three tools I have used to process the 125 texts are as follows:
+-Python functions
+-Re and Python functions
+-Natasha NLP
+I have thereby created three functions which efficiently process the input text for each text in the database.
+The functions are available under the file:'ProcessingFunctions.py'
+
+Text Analysis:
+I have then researched and implemented the commonly used methods for VectorMatrixAnalysis.
+In my project, I have used three functions to measure how similar the 100 texts are to each other:
+-Euclidean Similarity
+-Hamming Similarity
+-Cosine Similarity
+(Available under 'AnalysisFunctions.py')
+These functions have produced output (Results.txt), which show the similar vacancies on the website.
+
+Results:
+For the results output, I have coded three more functions, which depend on AnalysisFunctions.
+These functions are available at 'GetSimilarFunctions.py'.
+They output the index (available at Results.txt) for the three most similar vacancies with regards to the zeroth index.
+
+
+Conclusions:
+My results(available at Results.txt /have to scroll down/) have shown that for the Natasha Library, the three similar vacancies are as follows:
+'''
+Three similar Euclidean webpage indexes are: [19, 44, 59]
+Three similar Hamming webpage indexes are: [19, 44, 59]
+Three similar Cosine webpage indexes are: [19, 44, 59]
+'''
+For the Re library:
+'''
+Three similar Euclidean webpage indexes are: [11, 36, 83]
+Three similar Hamming webpage indexes are: [11, 36, 83]
+Three similar Cosine webpage indexes are: [11, 36, 83]
+'''
+For the Python Library:
+'''
+Three similar Euclidean webpage indexes are: [11, 36, 83]
+Three similar Hamming webpage indexes are: [11, 36, 83]
+Three similar Cosine webpage indexes are: [11, 36, 83]
+'''
+These results are really consistent with regards to the different methods used. From this I am able to conclude that the function used for analysis does not affect the final result.
+However, with regards to the library used for text processing, it is visible that the results for the Natasha Library differ to the results produced by the Re&Python libraries.
+Hence, the choice of the library does affect the output.
+
+With regards to the accuracy:
+Link for the zeroth article : [https://career.habr.com/vacancies/1000089011]
+Links for articles [19, 44, 59] : [https://career.habr.com/vacancies/1000089004, https://career.habr.com/vacancies/1000089004, https://career.habr.com/vacancies/1000088398]
+Links for articles [11, 36, 83] : [https://career.habr.com/vacancies/1000087799, https://career.habr.com/vacancies/1000087799, https://career.habr.com/vacancies/1000077024]
+
+Articles 19 & 44, as well as articles 11 & 36 are repeats. Probably they repeated while my algorithm was parsing through it, therefore we can neglect the repetition.
+
+On analysis of the zeroth article, the company 'arcsinus' is looking for an HR recruiter. Which requires good communication skills.
+The articles produced by Natasha are recruiting a manager and an analyst.
+These professions also require good communications skills and do not require their employees to code.
+Even more interesting is the fact that the most similar article produced by Natasha was the 'manager' position, which requires working with other people.
+I believe it can be said, that this is very similar to HR requirements.
+
+On the other hand, the articles produced by Re&Python are looking for an 'IT-architect' and a programmer. These jobs do not require very specific communication skills, besides writing understandable code. Therefore are not similar to the zeroth article.
+
+In this sense, I am able to conclude that the articles produced by Natasha are more similar than the articles produced by Python&Re.
+Thereby, the NLP tools used in Natasha are better positioned for parsing and comparing career specifications.
+However, it is unclear whether these results could be achieved by pure chance. What makes the situation more complex, is the fact that my programme has produced 2 links for the same articles, which made my results sample even smaller.
+Perhaps, if this project was replicated, one would need to use a) a larger data size and b)make sure that links are not repeated. 
